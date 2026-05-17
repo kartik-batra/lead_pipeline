@@ -1,0 +1,7 @@
+.env
+credentials/
+reports/
+*.db
+__pycache__/
+.venv/
+*.pyc
