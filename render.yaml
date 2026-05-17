@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: lead-pipeline
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SERPAPI_KEY
+        sync: false
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: YOUR_COMPANY_NAME
+        sync: false
+      - key: DATABASE_URL
+        value: sqlite:///./leads.db
+      - key: REPORTS_DIR
+        value: reports
